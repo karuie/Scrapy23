@@ -91,13 +91,12 @@ class MintecSpider(scrapy.Spider):
         series_description = series_data['content']['seriesDescription']
         currency = series_data['content']['currencyName']
         units = series_data['content']['unitName']
-        frequency = series_data['content']['frequencyName']
         country_of_origin = series_data['content']['countryOfOriginName']
         country_of_delivery = series_data['content']['countryOfDeliveryName']
         original_index_id = PATH_SEPARATOR.join([SOURCE, series_code, series_name, series_description,
-                                                 currency, units, frequency, country_of_origin, country_of_delivery])
+                                                 currency, units, country_of_origin, country_of_delivery])
         index_specification = PATH_SEPARATOR.join([series_name, series_description, currency, units,
-                                                   frequency, country_of_origin, country_of_delivery])
+                                                  country_of_origin, country_of_delivery])
         data_points = series_data['content']['points']
         for point in data_points:
             date = point['date']
